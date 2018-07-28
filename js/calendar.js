@@ -281,20 +281,7 @@ let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 let currentDate = new Date()
 let currentYear = currentDate.getFullYear()
-
-//making default calendar for January
-let daysInJanuary = daysInMonth(1, currentYear)
-let januaryFirstDay = new Date(new Date().getFullYear(), 0, 1);
-
-var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 7);
-let lastDayName = lastDay.toDateString().split(" ")[0];
-
-
-// alert(lastDayName)
-
-let firstRowEndNumber = 0
 let currDate = new Date().getDate()
-
 
 
 //Dynamic generated month tables when user choose from the select options    
