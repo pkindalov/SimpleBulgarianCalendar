@@ -23,3 +23,9 @@ td,th{
     padding: 31px;
     
 }
+
+.currentDate{
+    background: red;
+    color: white;
+    font-weight: bold;
+}

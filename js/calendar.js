@@ -32,12 +32,15 @@ let lastDayName = lastDay.toDateString().split(" ")[0];
 // alert(lastDayName)
 
 let firstRowEndNumber = 0
+    let currDate = new Date().getDate()
 
 
 $('.selectMonth').on('change', function(){
     table.empty()
     table.append(firstRow)
     table.append(daysName)
+
+
 
     let month = Number(this.value)
     let monthDays = daysInMonth(month, currentYear)
@@ -56,12 +59,19 @@ $('.selectMonth').on('change', function(){
         for(let d = 0; d <= 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 0){
             td.text(1)
+            td.addClass(`date${1}`)
             d++
             firstRowEndNumber = 8
         }else{
             td.text(d)
+            td.addClass(`date${d}`)
+
         }
 
 
@@ -89,12 +99,18 @@ $('.selectMonth').on('change', function(){
     for(let d = 0; d < 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 1){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 7
         }else if(d > 0){
             td.text(d)
+            td.addClass(`date${d}`)
         }
 
 
@@ -125,13 +141,20 @@ $('.selectMonth').on('change', function(){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 2){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 6
         }else if(d > 2){
+            //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
             counter = d - 1
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -161,13 +184,19 @@ $('.selectMonth').on('change', function(){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 3){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 5
         }else if(d > 2){
             counter = d - 2
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -197,13 +226,19 @@ $('.selectMonth').on('change', function(){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 4){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 4
         }else if(d > 3){
             counter = d - 3
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -233,13 +268,19 @@ $('.selectMonth').on('change', function(){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 5){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 3
         }else if(d > 4){
             counter = d - 4
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -268,8 +309,13 @@ $('.selectMonth').on('change', function(){
     for(let d = 0; d <= 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 6){
             td.text(1)
+            td.addClass(`date${1}`)
             d++
             firstRowEndNumber = 2
         }
@@ -292,9 +338,15 @@ for (let col = firstRowEndNumber; col <= daysInJanuary; col++){
     let newCol = $('<td></td>')
     newCol.text(col)
     newCol.appendTo(table)
+    newCol.addClass(`date${col}`)
+
+    if(col === currDate){
+        newCol.addClass(`date${col}`)
+        newCol.addClass('currentDate')
+    }
 
   
-
+    //this define where to put new row in the table
     if(col === separator ){
         // newCol.text(col + 1)
 
@@ -328,12 +380,18 @@ switch(lastDayName){
         for(let d = 0; d <= 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 0){
             td.text(1)
+            td.addClass(`date${1}`)
             d++
             firstRowEndNumber = 8
         }else{
             td.text(d)
+            td.addClass(`date${d}`)
         }
 
 
@@ -361,12 +419,18 @@ switch(lastDayName){
     for(let d = 0; d < 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 1){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 7
         }else if(d > 0){
             td.text(d)
+            td.addClass(`date${d}`)
         }
 
 
@@ -397,13 +461,19 @@ switch(lastDayName){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 2){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 6
         }else if(d > 2){
             counter = d - 1
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -433,13 +503,19 @@ switch(lastDayName){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 3){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 5
         }else if(d > 2){
             counter = d - 2
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -469,13 +545,19 @@ switch(lastDayName){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 4){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 4
         }else if(d > 3){
             counter = d - 3
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -505,13 +587,19 @@ switch(lastDayName){
         let td = $('<td></td>')
         let counter = 0
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 5){
             td.text(1)
+            td.addClass(`date${1}`)
             // d++
             firstRowEndNumber = 3
         }else if(d > 4){
             counter = d - 4
             td.text(counter)
+            td.addClass(`date${counter}`)
         }
 
 
@@ -540,8 +628,13 @@ switch(lastDayName){
     for(let d = 0; d <= 7; d++){
         let td = $('<td></td>')
 
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
         if(d === 6){
             td.text(1)
+            td.addClass(`date${1}`)
             d++
             firstRowEndNumber = 2
         }
@@ -567,6 +660,12 @@ for (let col = firstRowEndNumber; col <= daysInJanuary; col++){
     let newCol = $('<td></td>')
     newCol.text(col)
     newCol.appendTo(table)
+    newCol.addClass(`date${col}`)
+
+    if(col === currDate){
+        newCol.addClass(`date${col}`)
+        newCol.addClass('currentDate')
+    }
 
   
 
