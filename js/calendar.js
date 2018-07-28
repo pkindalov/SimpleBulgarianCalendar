@@ -11,7 +11,8 @@ $(document).ready(function () {
 
 let table = $('<table></table>')
 let firstRow = $('<tr></tr>')
-let daysName = $('<th>Пк</th><th>Вт</th><th>Ср</th><th>Че</th><th>Пе</th><th>Съ</th><th>Не</th>')
+let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
+
 
 daysName.appendTo(firstRow)
 firstRow.appendTo(table)
@@ -334,7 +335,7 @@ $('.selectMonth').on('change', function(){
 let separator = firstRowEndNumber + 6
 
 
-for (let col = firstRowEndNumber; col <= daysInJanuary; col++){
+for (let col = firstRowEndNumber; col <= monthDays; col++){
     let newCol = $('<td></td>')
     newCol.text(col)
     newCol.appendTo(table)
