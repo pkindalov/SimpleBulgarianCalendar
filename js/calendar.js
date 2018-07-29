@@ -3,12 +3,51 @@ const DATE_START_INDEX = 0
 const WEEKDAYS_WITHOUT_ONE = 6
 const WEEKDAYS_COUNT = 7
 
+
+
+function chooseColorSchemaForMonth(month){
+    // let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
+    
+
+    switch(month){
+        case 1:
+            return $('<th class="january">Пк</th><th class="january">Вт</th><th class="january">Ср</th><th class="january">Че</th><th class="january">Пе</th><th class="january">Съ</th><th class="january">Не</th>')
+        case 2:
+            return $('<th class="february">Пк</th><th class="february">Вт</th><th class="february">Ср</th><th class="february">Че</th><th class="february">Пе</th><th class="february">Съ</th><th class="february">Не</th>')    
+        case 3:
+            return $('<th class="march">Пк</th><th class="march">Вт</th><th class="march">Ср</th><th class="march">Че</th><th class="march">Пе</th><th class="march">Съ</th><th class="march">Не</th>')    
+        case 4:
+            return $('<th class="april">Пк</th><th class="april">Вт</th><th class="april">Ср</th><th class="april">Че</th><th class="april">Пе</th><th class="april">Съ</th><th class="april">Не</th>')    
+        case 5:
+            return $('<th class="may">Пк</th><th class="may">Вт</th><th class="may">Ср</th><th class="may">Че</th><th class="may">Пе</th><th class="may">Съ</th><th class="may">Не</th>')    
+        case 6:
+            return $('<th class="june">Пк</th><th class="june">Вт</th><th class="june">Ср</th><th class="june">Че</th><th class="june">Пе</th><th class="june">Съ</th><th class="june">Не</th>')    
+        case 7:
+            return $('<th class="july">Пк</th><th class="july">Вт</th><th class="july">Ср</th><th class="july">Че</th><th class="july">Пе</th><th class="july">Съ</th><th class="july">Не</th>')    
+        case 8:
+            return $('<th class="august">Пк</th><th class="august">Вт</th><th class="august">Ср</th><th class="august">Че</th><th class="august">Пе</th><th class="august">Съ</th><th class="august">Не</th>')    
+        case 9:    
+            return $('<th class="september">Пк</th><th class="september">Вт</th><th class="september">Ср</th><th class="september">Че</th><th class="september">Пе</th><th class="september">Съ</th><th class="september">Не</th>')
+        case 10:
+            return $('<th class="october">Пк</th><th class="october">Вт</th><th class="october">Ср</th><th class="october">Че</th><th class="october">Пе</th><th class="october">Съ</th><th class="october">Не</th>')    
+        case 11:
+            return $('<th class="november">Пк</th><th class="november">Вт</th><th class="november">Ср</th><th class="november">Че</th><th class="november">Пе</th><th class="november">Съ</th><th class="november">Не</th>')    
+        case 12:    
+            return $('<th class="december">Пк</th><th class="december">Вт</th><th class="december">Ср</th><th class="december">Че</th><th class="december">Пе</th><th class="december">Съ</th><th class="december">Не</th>')
+        default:
+            return $('<th class="january">Пк</th><th class="january">Вт</th><th class="january">Ср</th><th class="january">Че</th><th class="january">Пе</th><th class="january">Съ</th><th class="january">Не</th>')   
+    }
+
+}
+
+
 function daysInMonth(month,year) {
     return new Date(year, month, 0).getDate()
 }
 
 
 function drawFirsRowDaysNames(daysName, firstRow, table, calContainer){
+    firstRow.empty()
     daysName.appendTo(firstRow)
     firstRow.appendTo(table)
     table.appendTo(calContainer)
@@ -20,8 +59,39 @@ function reRenderTable(table, firstRow, daysName) {
     table.append(daysName)
 }
 
+function getClassForMonth(month){
+    switch(month){
+        case 1:
+            return 'currentDayJanuary'
+        case 2:
+            return 'currentDayFebruary'
+        case 3:
+            return 'currentDayMarch'
+        case 4:
+            return 'currentDayApril'
+        case 5:
+            return 'currentDayMay'
+        case 6:
+            return 'currentDayJune'
+        case 7:
+            return 'currentDayJuly'
+        case 8:
+            return 'currentDayAugust'
+        case 9:
+            return 'currentDaySeptember'
+        case 10:
+            return 'currentDayOctober'
+        case 11:
+            return 'currentDayNovember'
+        case 12:
+            return 'currentDayDecember'                                            
+        default:
+            return 'currentDayJanuary'    
+    }
+}
 
-function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, currDate, firstRowEndNumber, firstMonthWeekRow, table){
+
+function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, currDate, firstRowEndNumber, firstMonthWeekRow, table, month){
     
 
 
@@ -29,7 +99,8 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
         let td = $('<td></td>')
 
         if(d === currDate){
-            td.addClass('currentDate')
+            let classForCurrentMonth = getClassForMonth(month)
+            td.addClass(classForCurrentMonth)
         }
 
 
@@ -78,13 +149,14 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
 
 
 
-function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate, firstRowEndNumber, firstMonthWeekRow, table, emptyDays, decrementor) {
+function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate, firstRowEndNumber, firstMonthWeekRow, table, emptyDays, decrementor, month) {
      for(let d = 0; d < days; d++){
         let td = $('<td></td>')
         let counter = 0
 
         if(d === currDate){
-            td.addClass('currentDate')
+            let classForCurrentMonth = getClassForMonth(month)
+            td.addClass(classForCurrentMonth)
         }
 
 
@@ -126,7 +198,7 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
 
 
 
-function drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table) {
+function drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table, month) {
     let separator = firstRowEndNumber + WEEKDAYS_WITHOUT_ONE
 
 
@@ -138,7 +210,11 @@ for (let col = firstRowEndNumber; col <= monthDays; col++){
 
     if(col === currDate){
         newCol.addClass(`date${col}`)
-        newCol.addClass('currentDate')
+
+        let classForCurrentMonth = getClassForMonth(month)
+        newCol.addClass(classForCurrentMonth)
+
+        
     }
 
   
@@ -173,7 +249,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
     switch(beginDateName){
     case 'Mon':
 
-        firstRowEndNumber = drawFirstDateRowNumbersMondayAndTuesday(8, 0, beginDateName, currDate, 8, firstMonthWeekRow, table)
+        firstRowEndNumber = drawFirstDateRowNumbersMondayAndTuesday(8, 0, beginDateName, currDate, 8, firstMonthWeekRow, table, month)
 
     //     for(let d = 0; d < 8; d++){
     //     let td = $('<td></td>')
@@ -205,7 +281,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
 
 
-    firstRowEndNumber = drawFirstDateRowNumbersMondayAndTuesday(7, 1, beginDateName, currDate, 7, firstMonthWeekRow, table)
+    firstRowEndNumber = drawFirstDateRowNumbersMondayAndTuesday(7, 1, beginDateName, currDate, 7, firstMonthWeekRow, table, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -236,7 +312,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Wed':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 2, beginDateName, currDate, 6, firstMonthWeekRow, table, 2, 1)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 2, beginDateName, currDate, 6, firstMonthWeekRow, table, 2, 1, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -269,7 +345,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Thu':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 3, beginDateName, currDate, 5, firstMonthWeekRow, table, 2, 2)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 3, beginDateName, currDate, 5, firstMonthWeekRow, table, 2, 2, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -301,7 +377,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Fri':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 4, beginDateName, currDate, 4, firstMonthWeekRow, table, 3, 3)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 4, beginDateName, currDate, 4, firstMonthWeekRow, table, 3, 3, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -333,7 +409,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Sat':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 5, beginDateName, currDate, 3, firstMonthWeekRow, table, 4, 4)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 5, beginDateName, currDate, 3, firstMonthWeekRow, table, 4, 4, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -365,7 +441,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Sun':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(8, 6, beginDateName, currDate, 2, firstMonthWeekRow, table, 0, 0)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(8, 6, beginDateName, currDate, 2, firstMonthWeekRow, table, 0, 0, month)
 
     // for(let d = 0; d < 8; d++){
     //     let td = $('<td></td>')
@@ -392,7 +468,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
 
 
-drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table)
+drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table, month)
 
 // let separator = firstRowEndNumber + 6
 
@@ -498,9 +574,9 @@ $(document).ready(function () {
 let calContainer = $('#calendarContainer')
 let table = $('<table></table>')
 let firstRow = $('<tr></tr>')
-let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
+// let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
 
-
+let daysName = chooseColorSchemaForMonth(1)
 drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
 
 
@@ -520,12 +596,19 @@ let currDate = new Date().getDate()
 $('.selectMonth').on('change', function(){
    
 
-reRenderTable(table, firstRow, daysName)
    
 
 //This setting are about getting the choosed month from the user, calculate how many days it has, the name of the
 //first day 
 let month = Number(this.value)
+
+daysName = chooseColorSchemaForMonth(month)
+
+
+reRenderTable(table, firstRow, daysName)
+drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
+
+
     
 writeMonthName(month)    
 drawCalendarByMonthNumber(month, currentYear, currDate, table)

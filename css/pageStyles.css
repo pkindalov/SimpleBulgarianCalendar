@@ -15,11 +15,11 @@
 }
 
 table{
-    text-align:  center
+    text-align: center
 }
 
 td,th{
-    border:  1px solid red;
+    /*border:  1px solid red;*/
     padding: 31px;
     
 }
@@ -31,6 +31,141 @@ td,th{
 
 .currentDate, .nameOfDaysBG{
     background: red;
+    color: white;
+    font-weight: bold;
+}
+
+
+.january{
+    background-color: #42b6f4;
+    /*border: 1px solid black;*/
+    color: white;
+}
+
+.currentDayJanuary{
+    background-color: #42b6f4;
+    color: white;
+    font-weight: bold;
+}
+
+
+.february{
+    background-color: #b6e2f9;
+    color: black;
+}
+
+.currentDayFebruary{
+    background-color: #b6e2f9;
+    color: black;
+    font-weight: bold;
+}
+
+.march{
+    background-color: #84f988;
+    color: black;
+}
+
+.currentDayMarch{
+    background-color: #84f988;
+    color: black;
+    font-weight: bold;
+}
+
+.april{
+    background-color: #39ef3f;
+    color: black;
+}
+
+.currentDayApril{
+    background-color: #39ef3f;
+    color: black;
+    font-weight: bold;
+}
+
+.may{
+    background-color: #f9f745;
+    color: black;
+}
+
+.currentDayMay{
+    background-color: #f9f745;
+    color: black;
+    font-weight: bold;
+}
+
+.june{
+    background-color: #fce411;
+    color: black;
+}
+
+.currentDayJune{
+    background-color: #fce411;
+    color: black;
+    font-weight: bold;
+}
+
+.july{
+    background-color: #f9a11d;
+    color: black;
+}
+
+.currentDayJuly{
+    background-color: #f9a11d;
+    color: black;
+    font-weight: bold;
+}
+
+.august{
+    background-color: #f93e1d;
+    color: black;
+}
+
+.currentDayAugust{
+    background-color: #f93e1d;
+    color: black;
+    font-weight: bold;
+}
+
+.september{
+    background-color: #fc0008;
+    color: black;
+}
+
+.currentDaySeptember{
+    background-color: #fc0008;
+    color: black;
+    font-weight: bold;
+}
+
+.october{
+    background-color: #9e7ef7;
+    color: black;
+}
+
+.currentDayOctober{
+    background-color: #9e7ef7;
+    color: black;
+    font-weight: bold;
+}
+
+.november{
+    background-color: #662ffc;
+    color: white;
+}
+
+.currentDayNovember{
+    background-color: #662ffc;
+    color: white;
+    font-weight: bold;
+}
+
+.december{
+    background-color: #332ffc;
+    color: white;
+}
+
+.currentDayDecember{
+    background-color: #332ffc;
     color: white;
     font-weight: bold;
 }
