@@ -425,6 +425,73 @@ drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table)
 
 
 
+function getMonthNameBG(month){
+
+    switch(month){
+        case 1:
+            return 'Януари'
+
+        case 2: 
+            return 'Февруари'
+
+        case 3:
+        
+            return 'Март'
+
+        case 4:
+
+            return 'Април'
+
+        case 5:
+        
+            return 'Май'
+
+        case 6:
+
+            return 'Юни'
+
+        case 7:
+        
+            return 'Юли'
+
+        case 8:
+        
+            return 'Август'
+
+        case 9:
+        
+            return 'Септември'
+
+        case 10:
+
+            return 'Октомври'
+
+        case 11:
+
+            return 'Ноември'
+
+        case 12:
+        
+            return 'Декември'                                        
+        default:
+
+            return 'Януари'
+
+    }
+}
+
+
+
+function writeMonthName(month){
+    let monthNameBG = getMonthNameBG(month)
+    let monthNameCont = $('.monthNameContainer')
+
+    monthNameCont.text(monthNameBG)
+
+}
+
+
+
 
 $(document).ready(function () {
 //default configurations
@@ -460,6 +527,7 @@ reRenderTable(table, firstRow, daysName)
 //first day 
 let month = Number(this.value)
     
+writeMonthName(month)    
 drawCalendarByMonthNumber(month, currentYear, currDate, table)
 
 
