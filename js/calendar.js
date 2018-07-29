@@ -72,6 +72,59 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
 
 
 
+
+function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate, firstRowEndNumber, firstMonthWeekRow, table, emptyDays, decrementor) {
+     for(let d = 0; d < days; d++){
+        let td = $('<td></td>')
+        let counter = 0
+
+        if(d === currDate){
+            td.addClass('currentDate')
+        }
+
+
+        if(beginDateName === "Sun"){
+
+            if(d === dayIndex){
+            td.text(1)
+            td.addClass(`date${1}`)
+            d++
+            firstRowEndNumber = firstRowEndNumber
+        }
+
+
+        }else {
+
+            if(d === dayIndex){
+                td.text(1)
+                td.addClass(`date${1}`)
+                // d++
+                firstRowEndNumber = firstRowEndNumber
+            }else if(d > emptyDays){
+                //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
+                counter = d - decrementor
+                td.text(counter)
+                td.addClass(`date${counter}`)
+            }
+        }
+
+
+
+
+        firstMonthWeekRow.append(td)
+        firstMonthWeekRow.appendTo(table)
+    }
+
+     return firstRowEndNumber
+}
+
+
+
+
+
+
+
+
 function drawCalendarByMonthNumber(month,currentYear, currDate, table){
     let monthDays = daysInMonth(month, currentYear)
     let monthFirstDayName = new Date(new Date().getFullYear(), month - 1, 1);
@@ -149,30 +202,32 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Wed':
 
-    for(let d = 0; d < 7; d++){
-        let td = $('<td></td>')
-        let counter = 0
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 2, beginDateName, currDate, 6, firstMonthWeekRow, table, 2, 1)
 
-        if(d === currDate){
-            td.addClass('currentDate')
-        }
+    // for(let d = 0; d < 7; d++){
+    //     let td = $('<td></td>')
+    //     let counter = 0
 
-        if(d === 2){
-            td.text(1)
-            td.addClass(`date${1}`)
-            // d++
-            firstRowEndNumber = 6
-        }else if(d > 2){
-            //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
-            counter = d - 1
-            td.text(counter)
-            td.addClass(`date${counter}`)
-        }
+    //     if(d === currDate){
+    //         td.addClass('currentDate')
+    //     }
+
+    //     if(d === 2){
+    //         td.text(1)
+    //         td.addClass(`date${1}`)
+    //         // d++
+    //         firstRowEndNumber = 6
+    //     }else if(d > 2){
+    //         //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
+    //         counter = d - 1
+    //         td.text(counter)
+    //         td.addClass(`date${counter}`)
+    //     }
 
 
-        firstMonthWeekRow.append(td)
-        firstMonthWeekRow.appendTo(table)
-    }
+    //     firstMonthWeekRow.append(td)
+    //     firstMonthWeekRow.appendTo(table)
+    // }
 
     
 
@@ -180,29 +235,31 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Thu':
 
-    for(let d = 0; d < 7; d++){
-        let td = $('<td></td>')
-        let counter = 0
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 3, beginDateName, currDate, 5, firstMonthWeekRow, table, 2, 2)
 
-        if(d === currDate){
-            td.addClass('currentDate')
-        }
+    // for(let d = 0; d < 7; d++){
+    //     let td = $('<td></td>')
+    //     let counter = 0
 
-        if(d === 3){
-            td.text(1)
-            td.addClass(`date${1}`)
-            // d++
-            firstRowEndNumber = 5
-        }else if(d > 2){
-            counter = d - 2
-            td.text(counter)
-            td.addClass(`date${counter}`)
-        }
+    //     if(d === currDate){
+    //         td.addClass('currentDate')
+    //     }
+
+    //     if(d === 3){
+    //         td.text(1)
+    //         td.addClass(`date${1}`)
+    //         // d++
+    //         firstRowEndNumber = 5
+    //     }else if(d > 2){
+    //         counter = d - 2
+    //         td.text(counter)
+    //         td.addClass(`date${counter}`)
+    //     }
 
 
-        firstMonthWeekRow.append(td)
-        firstMonthWeekRow.appendTo(table)
-    }
+    //     firstMonthWeekRow.append(td)
+    //     firstMonthWeekRow.appendTo(table)
+    // }
 
    
 
@@ -210,29 +267,31 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Fri':
 
-    for(let d = 0; d < 7; d++){
-        let td = $('<td></td>')
-        let counter = 0
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 4, beginDateName, currDate, 4, firstMonthWeekRow, table, 3, 3)
 
-        if(d === currDate){
-            td.addClass('currentDate')
-        }
+    // for(let d = 0; d < 7; d++){
+    //     let td = $('<td></td>')
+    //     let counter = 0
 
-        if(d === 4){
-            td.text(1)
-            td.addClass(`date${1}`)
-            // d++
-            firstRowEndNumber = 4
-        }else if(d > 3){
-            counter = d - 3
-            td.text(counter)
-            td.addClass(`date${counter}`)
-        }
+    //     if(d === currDate){
+    //         td.addClass('currentDate')
+    //     }
+
+    //     if(d === 4){
+    //         td.text(1)
+    //         td.addClass(`date${1}`)
+    //         // d++
+    //         firstRowEndNumber = 4
+    //     }else if(d > 3){
+    //         counter = d - 3
+    //         td.text(counter)
+    //         td.addClass(`date${counter}`)
+    //     }
 
 
-        firstMonthWeekRow.append(td)
-        firstMonthWeekRow.appendTo(table)
-    }
+    //     firstMonthWeekRow.append(td)
+    //     firstMonthWeekRow.appendTo(table)
+    // }
 
     
 
@@ -240,29 +299,31 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Sat':
 
-    for(let d = 0; d < 7; d++){
-        let td = $('<td></td>')
-        let counter = 0
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 5, beginDateName, currDate, 3, firstMonthWeekRow, table, 4, 4)
 
-        if(d === currDate){
-            td.addClass('currentDate')
-        }
+    // for(let d = 0; d < 7; d++){
+    //     let td = $('<td></td>')
+    //     let counter = 0
 
-        if(d === 5){
-            td.text(1)
-            td.addClass(`date${1}`)
-            // d++
-            firstRowEndNumber = 3
-        }else if(d > 4){
-            counter = d - 4
-            td.text(counter)
-            td.addClass(`date${counter}`)
-        }
+    //     if(d === currDate){
+    //         td.addClass('currentDate')
+    //     }
+
+    //     if(d === 5){
+    //         td.text(1)
+    //         td.addClass(`date${1}`)
+    //         // d++
+    //         firstRowEndNumber = 3
+    //     }else if(d > 4){
+    //         counter = d - 4
+    //         td.text(counter)
+    //         td.addClass(`date${counter}`)
+    //     }
 
 
-        firstMonthWeekRow.append(td)
-        firstMonthWeekRow.appendTo(table)
-    }
+    //     firstMonthWeekRow.append(td)
+    //     firstMonthWeekRow.appendTo(table)
+    // }
 
     
 
@@ -270,24 +331,26 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Sun':
 
-    for(let d = 0; d < 8; d++){
-        let td = $('<td></td>')
+    firstRowEndNumber = drawFirstDateRowFromWednesday(8, 6, beginDateName, currDate, 2, firstMonthWeekRow, table, 0, 0)
 
-        if(d === currDate){
-            td.addClass('currentDate')
-        }
+    // for(let d = 0; d < 8; d++){
+    //     let td = $('<td></td>')
 
-        if(d === 6){
-            td.text(1)
-            td.addClass(`date${1}`)
-            d++
-            firstRowEndNumber = 2
-        }
+    //     if(d === currDate){
+    //         td.addClass('currentDate')
+    //     }
+
+    //     if(d === 6){
+    //         td.text(1)
+    //         td.addClass(`date${1}`)
+    //         d++
+    //         firstRowEndNumber = 2
+    //     }
 
 
-        firstMonthWeekRow.append(td)
-        firstMonthWeekRow.appendTo(table)
-    }
+    //     firstMonthWeekRow.append(td)
+    //     firstMonthWeekRow.appendTo(table)
+    // }
 
     break
 
