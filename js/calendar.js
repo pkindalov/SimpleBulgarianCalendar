@@ -1,3 +1,8 @@
+const FIRST_DATE = 1
+const DATE_START_INDEX = 0
+const WEEKDAYS_WITHOUT_ONE = 6
+const WEEKDAYS_COUNT = 7
+
 function daysInMonth(month,year) {
     return new Date(year, month, 0).getDate()
 }
@@ -32,8 +37,8 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
             case 'Mon':
 
             if(d === dayIndex){
-                td.text(1)
-                td.addClass(`date${1}`)
+                td.text(FIRST_DATE)
+                td.addClass(`date${FIRST_DATE}`)
                 d++
                 firstRowEndNumber = firstRowEndNumber
             }else{
@@ -46,11 +51,11 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
             case 'Tue':
 
             if(d === dayIndex){
-                td.text(1)
-                td.addClass(`date${1}`)
+                td.text(FIRST_DATE)
+                td.addClass(`date${FIRST_DATE}`)
                 // d++
                 firstRowEndNumber = firstRowEndNumber
-            }else if(d > 0){
+            }else if(d > DATE_START_INDEX){
                 td.text(d)
                 td.addClass(`date${d}`)
             }
@@ -86,8 +91,8 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
         if(beginDateName === "Sun"){
 
             if(d === dayIndex){
-            td.text(1)
-            td.addClass(`date${1}`)
+            td.text(FIRST_DATE)
+            td.addClass(`date${FIRST_DATE}`)
             d++
             firstRowEndNumber = firstRowEndNumber
         }
@@ -96,8 +101,8 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
         }else {
 
             if(d === dayIndex){
-                td.text(1)
-                td.addClass(`date${1}`)
+                td.text(FIRST_DATE)
+                td.addClass(`date${FIRST_DATE}`)
                 // d++
                 firstRowEndNumber = firstRowEndNumber
             }else if(d > emptyDays){
@@ -122,7 +127,7 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
 
 
 function drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table) {
-    let separator = firstRowEndNumber + 6
+    let separator = firstRowEndNumber + WEEKDAYS_WITHOUT_ONE
 
 
 for (let col = firstRowEndNumber; col <= monthDays; col++){
@@ -143,7 +148,7 @@ for (let col = firstRowEndNumber; col <= monthDays; col++){
 
         let newRow = $('<tr></tr>')
         newRow.appendTo(table)
-        separator += 7
+        separator += WEEKDAYS_COUNT
     }
 
 
