@@ -121,6 +121,35 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
 
 
 
+function drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table) {
+    let separator = firstRowEndNumber + 6
+
+
+for (let col = firstRowEndNumber; col <= monthDays; col++){
+    let newCol = $('<td></td>')
+    newCol.text(col)
+    newCol.appendTo(table)
+    newCol.addClass(`date${col}`)
+
+    if(col === currDate){
+        newCol.addClass(`date${col}`)
+        newCol.addClass('currentDate')
+    }
+
+  
+    //this define where to put new row in the table
+    if(col === separator ){
+        // newCol.text(col + 1)
+
+        let newRow = $('<tr></tr>')
+        newRow.appendTo(table)
+        separator += 7
+    }
+
+
+}
+}
+
 
 
 
@@ -358,32 +387,34 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
 
 
-let separator = firstRowEndNumber + 6
+drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table)
+
+// let separator = firstRowEndNumber + 6
 
 
-for (let col = firstRowEndNumber; col <= monthDays; col++){
-    let newCol = $('<td></td>')
-    newCol.text(col)
-    newCol.appendTo(table)
-    newCol.addClass(`date${col}`)
+// for (let col = firstRowEndNumber; col <= monthDays; col++){
+//     let newCol = $('<td></td>')
+//     newCol.text(col)
+//     newCol.appendTo(table)
+//     newCol.addClass(`date${col}`)
 
-    if(col === currDate){
-        newCol.addClass(`date${col}`)
-        newCol.addClass('currentDate')
-    }
+//     if(col === currDate){
+//         newCol.addClass(`date${col}`)
+//         newCol.addClass('currentDate')
+//     }
 
   
-    //this define where to put new row in the table
-    if(col === separator ){
-        // newCol.text(col + 1)
+//     //this define where to put new row in the table
+//     if(col === separator ){
+//         // newCol.text(col + 1)
 
-        let newRow = $('<tr></tr>')
-        newRow.appendTo(table)
-        separator += 7
-    }
+//         let newRow = $('<tr></tr>')
+//         newRow.appendTo(table)
+//         separator += 7
+//     }
 
 
-}
+// }
 
 }
 
@@ -393,8 +424,6 @@ for (let col = firstRowEndNumber; col <= monthDays; col++){
 $(document).ready(function () {
 //default configurations
 let calContainer = $('#calendarContainer')
-
-
 let table = $('<table></table>')
 let firstRow = $('<tr></tr>')
 let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
@@ -408,6 +437,9 @@ let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 let currentDate = new Date()
 let currentYear = currentDate.getFullYear()
 let currDate = new Date().getDate()
+
+
+
 
 
 //Dynamic generated month tables when user choose from the select options    
