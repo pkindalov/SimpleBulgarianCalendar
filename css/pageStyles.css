@@ -1,5 +1,5 @@
 .container{
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     text-align:  center;
 }
 
@@ -11,7 +11,7 @@
 #calendarContainer{
     width: 50%;
     margin:  0 auto;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 
 table{
@@ -29,55 +29,94 @@ td,th{
     padding: 10px 0 10px 0;
 }
 
-.currentDate, .nameOfDaysBG{
+/*.currentDate, .nameOfDaysBG{
     background: red;
     color: white;
     font-weight: bold;
+}*/
+
+#calendarContainer{
+    width: 50.8%;
+}
+
+.januaryWall{
+    background-image: url('../images/darkBlue.jpg');
+    background-repeat: no-repeat;
+    color: white;
 }
 
 
 .january{
     background-color: #42b6f4;
+    opacity: 0.6;
+    /*background-image: url('../images/darkBlue.jpg');*/
     /*border: 1px solid black;*/
-    color: white;
+    color: black;
 }
 
 .currentDayJanuary{
     background-color: #42b6f4;
+    opacity: 0.6;
     color: white;
     font-weight: bold;
 }
 
 
+.februaryWall{
+    background-image: url('../images/frozen.jpg');
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
 .february{
     background-color: #b6e2f9;
+    opacity: 0.8;
     color: black;
 }
 
 .currentDayFebruary{
     background-color: #b6e2f9;
+    opacity: 0.6;
     color: black;
     font-weight: bold;
 }
 
 .march{
     background-color: #84f988;
+    opacity: 0.6;
     color: black;
+}
+
+.marchWall{
+    background-image: url('../images/greenLeaf.jpg');
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .currentDayMarch{
     background-color: #84f988;
-    color: black;
+    opacity: 0.6;
+    color: white;
     font-weight: bold;
 }
 
 .april{
     background-color: #39ef3f;
     color: black;
+    opacity: 0.6;
+}
+
+.aprilWall{
+    background-image: url('../images/spring.jpg');
+    opacity: 0.9;
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .currentDayApril{
     background-color: #39ef3f;
+    opacity: 0.6;
     color: black;
     font-weight: bold;
 }
@@ -85,16 +124,32 @@ td,th{
 .may{
     background-color: #f9f745;
     color: black;
+    opacity: 0.8;
+}
+
+.mayWall{
+    background-image: url('../images/goldColor.jpg');
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    color: black;
 }
 
 .currentDayMay{
     background-color: #f9f745;
     color: black;
+    opacity: 0.8;
     font-weight: bold;
 }
 
 .june{
     background-color: #fce411;
+    color: black;
+    opacity: 0.6;
+}
+
+.juneWall{
+    background-image: url('../images/summer.jpg');
+    background-repeat: no-repeat;
     color: black;
 }
 
@@ -102,43 +157,76 @@ td,th{
     background-color: #fce411;
     color: black;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .july{
     background-color: #f9a11d;
     color: black;
+    opacity: 0.6;
 }
+
+.julyWall{
+    background-image: url('../images/julyOptimized.jpg');
+    background-repeat: no-repeat;
+    color: black;
+}
+
 
 .currentDayJuly{
     background-color: #f9a11d;
     color: black;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .august{
     background-color: #f93e1d;
     color: black;
+    opacity: 0.6;
+}
+
+.augustWall{
+    background-image: url('../images/endOfSummer.jpg');
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .currentDayAugust{
     background-color: #f93e1d;
     color: black;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .september{
     background-color: #fc0008;
-    color: black;
+    color: white;
+    opacity: 0.6;
+}
+
+.septemberWall{
+    background-image: url('../images/september.jpg');
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .currentDaySeptember{
     background-color: #fc0008;
-    color: black;
+    color: white;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .october{
     background-color: #9e7ef7;
+    color: black;
+    opacity: 0.6;
+}
+
+.octoberWall{
+    background-image: url('../images/october.jpg');
+    background-repeat: no-repeat;
     color: black;
 }
 
@@ -146,10 +234,18 @@ td,th{
     background-color: #9e7ef7;
     color: black;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .november{
     background-color: #662ffc;
+    color: white;
+    opacity: 0.6;
+}
+
+.novemberWall{
+    background-image: url('../images/november.jpg');
+    background-repeat: no-repeat;
     color: white;
 }
 
@@ -157,10 +253,18 @@ td,th{
     background-color: #662ffc;
     color: white;
     font-weight: bold;
+    opacity: 0.6;
 }
 
 .december{
     background-color: #332ffc;
+    color: white;
+    opacity: 0.6;
+}
+
+.decemberWall{
+    background-image: url('../images/december.jpg');
+    background-repeat: no-repeat;
     color: white;
 }
 
@@ -168,4 +272,5 @@ td,th{
     background-color: #332ffc;
     color: white;
     font-weight: bold;
+    opacity: 0.6;
 }

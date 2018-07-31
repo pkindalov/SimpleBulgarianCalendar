@@ -567,12 +567,72 @@ function writeMonthName(month){
 }
 
 
+function changeBackground(month){
+    let container = $('#calendar')
+    container.removeClass()
+
+    switch(month){
+        case 1:
+            container.addClass('januaryWall')
+            break
+
+        case 2:
+            container.addClass('februaryWall')
+            break
+
+        case 3:
+            container.addClass('marchWall')
+            break
+
+        case 4:
+            container.addClass('aprilWall')
+            break
+
+        case 5:
+            container.addClass('mayWall')
+            break
+
+        case 6:
+            container.addClass('juneWall')
+            break
+
+        case 7:
+            container.addClass('julyWall')
+            break
+
+        case 8:
+            container.addClass('augustWall')
+            break
+
+        case 9:
+            container.addClass('septemberWall')
+            break
+
+        case 10:
+            container.addClass('octoberWall')
+            break
+
+        case 11:
+            container.addClass('novemberWall')
+            break
+
+        case 12:
+            container.addClass('decemberWall')
+            break                                
+
+        default:
+            container.addClass('januaryWall')
+        break        
+    }
+}
+
+
 
 
 $(document).ready(function () {
 //default configurations
 let calContainer = $('#calendarContainer')
-let table = $('<table></table>')
+let table = $('<table id="calendar" class="januaryWall"></table>')
 let firstRow = $('<tr></tr>')
 // let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
 
@@ -604,6 +664,7 @@ let month = Number(this.value)
 
 daysName = chooseColorSchemaForMonth(month)
 
+changeBackground(month)
 
 reRenderTable(table, firstRow, daysName)
 drawFirsRowDaysNames(daysName, firstRow, table, calContainer)

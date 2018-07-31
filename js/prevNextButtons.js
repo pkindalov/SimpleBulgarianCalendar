@@ -26,12 +26,15 @@ $(document).ready(function(){
 		let start = Number($('.selectMonth').val())
 		// console.log(start)
 		let value = ''
+		let codeField = $('textarea[name="tableCode"]')
+		let getCodeFrom = $('#calendarContainer')
 
 
 	$('a[name="prevMonth"]').click(function(event){
 		event.preventDefault()
 
 		start = showPrevMonth(start, value)
+		codeField.val(getCodeFrom.html())
 		// start = $('.selectMonth option:selected').val()
 		// start--
 		// if(start < 1) start = END_OF_MONTHS
@@ -46,6 +49,7 @@ $(document).ready(function(){
 	$('a[name="nextMonth"]').click(function(event){
 		event.preventDefault()
 		start = showNextMonth(start, value)
+		codeField.val(getCodeFrom.html())
 	})
 
 
@@ -55,9 +59,11 @@ $(document).ready(function(){
 		switch(event.which){
 			case 37:
 				start = showPrevMonth(start, value)
+				codeField.val(getCodeFrom.html())
 				break
 			case 39:
 				start = showNextMonth(start, value)
+				codeField.val(getCodeFrom.html())
 				break		
 		}
 	})
