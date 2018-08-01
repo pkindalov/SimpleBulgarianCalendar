@@ -28,6 +28,10 @@ $(document).ready(function(){
 		let value = ''
 		let codeField = $('textarea[name="tableCode"]')
 		let getCodeFrom = $('#calendarContainer')
+		let startAutoPrevMode = ''
+		let startAutoNextMode = ''
+		let ifAutoPrevModeStarted = false
+		let ifAutoNextModeStarted = false
 
 
 	$('a[name="prevMonth"]').click(function(event){
@@ -50,6 +54,40 @@ $(document).ready(function(){
 		event.preventDefault()
 		start = showNextMonth(start, value)
 		codeField.val(getCodeFrom.html())
+	})
+
+
+	$('a[name="autoPrevMont"').click(function(){
+		clearInterval(startAutoNextMode)
+		$('.autoNextStatus').text('')
+		ifAutoNextModeStarted = false
+
+		ifAutoPrevModeStarted = !ifAutoPrevModeStarted
+
+		if(ifAutoPrevModeStarted){
+			startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), 3000)
+			$('.autoPrevStatus').text('Включен')
+		} else {
+			clearInterval(startAutoPrevMode)
+			$('.autoPrevStatus').text('')
+		}
+	})
+
+
+	$('a[name="autoNextMont"').click(function(){
+		clearInterval(startAutoPrevMode)
+		$('.autoPrevStatus').text('')
+		ifAutoPrevModeStarted = false
+
+		ifAutoNextModeStarted = !ifAutoNextModeStarted
+
+		if(ifAutoNextModeStarted){
+			startAutoNextMode = setInterval(() => start = showNextMonth(start, value), 3000)
+			$('.autoNextStatus').text('Включен')
+		} else {
+			clearInterval(startAutoNextMode)
+			$('.autoNextStatus').text('')
+		}
 	})
 
 
