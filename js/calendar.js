@@ -98,10 +98,10 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
     for(let d = 0; d < days; d++){
         let td = $('<td></td>')
 
-        if(d === currDate){
-            let classForCurrentMonth = getClassForMonth(month)
-            td.addClass(classForCurrentMonth)
-        }
+        // if(d === currDate){
+        //     let classForCurrentMonth = getClassForMonth(month)
+        //     td.addClass(classForCurrentMonth)
+        // }
 
 
         switch(beginDateName){
@@ -112,6 +112,11 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
                 td.addClass(`date${FIRST_DATE}`)
                 d++
                 firstRowEndNumber = firstRowEndNumber
+
+                let classForCurrentMonth = getClassForMonth(month)
+                td.addClass(classForCurrentMonth)
+
+
             }else{
                 td.text(d)
                 td.addClass(`date${d}`)
@@ -124,8 +129,11 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
             if(d === dayIndex){
                 td.text(FIRST_DATE)
                 td.addClass(`date${FIRST_DATE}`)
+
                 // d++
                 firstRowEndNumber = firstRowEndNumber
+                let classForCurrentMonth = getClassForMonth(month)
+                td.addClass(classForCurrentMonth)
             }else if(d > DATE_START_INDEX){
                 td.text(d)
                 td.addClass(`date${d}`)
@@ -154,10 +162,10 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
         let td = $('<td></td>')
         let counter = 0
 
-        if(d === currDate){
-            let classForCurrentMonth = getClassForMonth(month)
-            td.addClass(classForCurrentMonth)
-        }
+        // if(d === currDate){
+        //     let classForCurrentMonth = getClassForMonth(month)
+        //     td.addClass(classForCurrentMonth)
+        // }
 
 
         if(beginDateName === "Sun"){
@@ -167,6 +175,9 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
             td.addClass(`date${FIRST_DATE}`)
             d++
             firstRowEndNumber = firstRowEndNumber
+
+            let classForCurrentMonth = getClassForMonth(month)
+            td.addClass(classForCurrentMonth)
         }
 
 
@@ -177,6 +188,10 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
                 td.addClass(`date${FIRST_DATE}`)
                 // d++
                 firstRowEndNumber = firstRowEndNumber
+
+                let classForCurrentMonth = getClassForMonth(month)
+                td.addClass(classForCurrentMonth)
+
             }else if(d > emptyDays){
                 //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
                 counter = d - decrementor
@@ -627,6 +642,68 @@ function changeBackground(month){
 }
 
 
+function changeBackgroundOfContainer(month){
+    let container = $('#mainContainer')
+    container.removeClass()
+
+    container.addClass('container-fluid')
+
+    switch(month){
+        case 1:
+            container.addClass('mainContainerJanuaryWall')
+            break
+
+        case 2:
+            container.addClass('mainContainerFebruaryWall')
+            break
+
+        case 3:
+            container.addClass('mainContainerMarchWall')
+            break
+
+        case 4:
+            container.addClass('mainContainerAprilWall')
+            break
+
+        case 5:
+            container.addClass('mainContainerMayWall')
+            break
+
+        case 6:
+            container.addClass('mainContainerJuneWall')
+            break
+
+        case 7:
+            container.addClass('mainContainerJulyWall')
+            break
+
+        case 8:
+            container.addClass('mainContainerAugustWall')
+            break
+
+        case 9:
+            container.addClass('mainContainerSeptemberWall')
+            break
+
+        case 10:
+            container.addClass('mainContainerOctoberWall')
+            break
+
+        case 11:
+            container.addClass('mainContainerNovemberWall')
+            break
+
+        case 12:
+            container.addClass('mainContainerDecemberWall')
+            break                                
+
+        default:
+            container.addClass('januaryWall')
+        break        
+    }
+}
+
+
 
 
 $(document).ready(function () {
@@ -665,6 +742,7 @@ let month = Number(this.value)
 daysName = chooseColorSchemaForMonth(month)
 
 changeBackground(month)
+changeBackgroundOfContainer(month)
 
 reRenderTable(table, firstRow, daysName)
 drawFirsRowDaysNames(daysName, firstRow, table, calContainer)

@@ -10,8 +10,10 @@ $(document).ready(function(){
 		if(isCodeFieldShow){
 			codeField.val(getCodeFrom.html())
 			codeField.show()
+			$(this).text('Скрий')
 		}else{	
 			codeField.hide()
+			$(this).text('Покажи')
 		}
 	})
 })
