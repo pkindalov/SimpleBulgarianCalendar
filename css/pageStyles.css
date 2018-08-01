@@ -1,6 +1,8 @@
-.container{
+
+.container-fluid{
     /*margin-top: 20px;*/
     text-align:  center;
+
 }
 
 .selectMonth {
@@ -24,6 +26,18 @@ td,th{
     
 }
 
+.txtAreaCodeCont{
+    height: 100%;
+    width: 85%;
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    color: black;
+    border-radius: 5px;
+    margin-left: -70px;
+}
+
+
 .row{
     margin: 10px 0 10px 0;
     padding: 10px 0 10px 0;
@@ -36,13 +50,20 @@ td,th{
 }*/
 
 #calendarContainer{
-    width: 50.8%;
+    width: 40.8%;
 }
 
 .januaryWall{
     background-image: url('../images/darkBlue.jpg');
     background-repeat: no-repeat;
     color: white;
+}
+
+.mainContainerJanuaryWall{
+     /*background-image: url('../images/darkBlue.jpg');*/
+     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/darkBlue.jpg");
+     background-repeat: repeat;
+
 }
 
 
@@ -66,6 +87,11 @@ td,th{
     background-image: url('../images/frozen.jpg');
     background-repeat: no-repeat;
     color: white;
+}
+
+.mainContainerFebruaryWall{
+     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/frozen.jpg");
+     background-repeat: repeat;
 }
 
 
@@ -94,6 +120,11 @@ td,th{
     color: white;
 }
 
+.mainContainerMarchWall{
+     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/greenLeaf.jpg");
+     background-repeat: repeat;
+}
+
 .currentDayMarch{
     background-color: #84f988;
     opacity: 0.6;
@@ -109,9 +140,14 @@ td,th{
 
 .aprilWall{
     background-image: url('../images/spring.jpg');
-    opacity: 0.9;
+    /*opacity: 0.9;*/
     background-repeat: no-repeat;
     color: white;
+}
+
+.mainContainerAprilWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/spring.jpg");
+    background-repeat: repeat;
 }
 
 .currentDayApril{
@@ -130,8 +166,13 @@ td,th{
 .mayWall{
     background-image: url('../images/goldColor.jpg');
     background-repeat: no-repeat;
-    opacity: 0.8;
+    /*opacity: 0.8;*/
     color: black;
+}
+
+.mainContainerMayWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/goldColor.jpg");
+    background-repeat: repeat;
 }
 
 .currentDayMay{
@@ -153,6 +194,11 @@ td,th{
     color: black;
 }
 
+.mainContainerJuneWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/summer.jpg");
+    background-repeat: repeat;
+}
+
 .currentDayJune{
     background-color: #fce411;
     color: black;
@@ -170,6 +216,11 @@ td,th{
     background-image: url('../images/julyOptimized.jpg');
     background-repeat: no-repeat;
     color: black;
+}
+
+.mainContainerJulyWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/julyOptimized.jpg");
+    background-repeat: repeat;
 }
 
 
@@ -192,6 +243,11 @@ td,th{
     color: white;
 }
 
+.mainContainerAugustWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/endOfSummer.jpg");
+    background-repeat: repeat;
+}
+
 .currentDayAugust{
     background-color: #f93e1d;
     color: black;
@@ -209,6 +265,11 @@ td,th{
     background-image: url('../images/september.jpg');
     background-repeat: no-repeat;
     color: white;
+}
+
+.mainContainerSeptemberWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/september.jpg");
+    background-repeat: repeat;
 }
 
 .currentDaySeptember{
@@ -230,6 +291,11 @@ td,th{
     color: black;
 }
 
+.mainContainerOctoberWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/october.jpg");
+    background-repeat: repeat;
+}
+
 .currentDayOctober{
     background-color: #9e7ef7;
     color: black;
@@ -249,6 +315,11 @@ td,th{
     color: white;
 }
 
+.mainContainerNovemberWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/november.jpg");
+    background-repeat: repeat;
+}
+
 .currentDayNovember{
     background-color: #662ffc;
     color: white;
@@ -266,6 +337,11 @@ td,th{
     background-image: url('../images/december.jpg');
     background-repeat: no-repeat;
     color: white;
+}
+
+.mainContainerDecemberWall{
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("../images/december.jpg");
+    background-repeat: repeat;
 }
 
 .currentDayDecember{

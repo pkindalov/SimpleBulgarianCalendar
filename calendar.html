@@ -15,7 +15,7 @@
 
 <body>
 
-<div class="container">
+<div id="mainContainer" class="container-fluid mainContainerJanuaryWall">
     <div class="row">
         <div class="col-lg-12">
             <h4>Изберете месец: </h4>
@@ -51,9 +51,11 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
-        <a name="showTableCode" class="btn btn-default">Show Table Code</a>
-        <textarea name="tableCode" class="form-control" rows="15" cols="30" readonly="readonly"></textarea>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <a name="showTableCode" class="btn btn-default">Show/Hide Table Code</a><br /><br />
+          <textarea name="tableCode" class="form-controrl txtAreaCodeCont" rows="15" readonly="readonly"></textarea>
+        </div>  
       </div>  
     </div>  
 </div>
