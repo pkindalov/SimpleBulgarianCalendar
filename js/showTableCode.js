@@ -155,31 +155,8 @@ function writeCurrentDayClassOnCodeArea(currentDayClass){
 }
 
 
-
-
-$(document).ready(function(){
-	let codeField = $('textarea[name="tableCode"]')
-	let getCodeFrom = $('#calendarContainer')
-	let isCodeFieldShow = false
-	codeField.hide()
-
-	$('a[name="showTableCode"]').click(function(){
-		isCodeFieldShow = !isCodeFieldShow
-
-		if(isCodeFieldShow){
-			codeField.val(getCodeFrom.html())
-			codeField.show()
-			$(this).text('Скрий')
-		}else{	
-			codeField.hide()
-			$(this).text('Покажи')
-		}
-	})
-
-
-
-	$('a[name="showCSS"]').click(function(){
-		let tableRows = $('#calendar tr')
+ function writeCSS(){
+	let tableRows = $('#calendar tr')
 		let currentElementClass = ''
 		let thClass = ''
 		let tableClass = $('#calendar').attr('class')
@@ -212,7 +189,50 @@ $(document).ready(function(){
 		// writeTableContainerClassOnCodeArea()	
 		// console.log(thClass)
 		// console.log(tableClass)
+}
 
 
+
+
+
+
+$(document).ready(function(){
+	let codeField = $('textarea[name="tableCode"]')
+	let cssCodeField = $('textarea[name="tableCSScode"]')
+	let getCodeFrom = $('#calendarContainer')
+	let isCodeFieldShow = false
+	let isCSScodeFieldShow = false
+
+	codeField.hide()
+	cssCodeField.hide()
+
+	$('a[name="showTableCode"]').click(function(){
+		isCodeFieldShow = !isCodeFieldShow
+
+		if(isCodeFieldShow){
+			codeField.val(getCodeFrom.html())
+			codeField.show()
+			$(this).text('Скрий')
+		}else{	
+			codeField.hide()
+			$(this).text('Покажи')
+		}
+	})
+
+
+
+	$('a[name="showCSS"]').click(function(){
+		isCSScodeFieldShow = !isCSScodeFieldShow
+
+		if(isCSScodeFieldShow){
+			writeCSS()
+			cssCodeField.show()
+			$(this).text('Скрий')
+		}else{
+			cssCodeField.hide()
+			$(this).text('Покажи')
+		}
 	})
 })
+
+

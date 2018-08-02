@@ -102,7 +102,25 @@ $(document).ready(function(){
 			case 39:
 				start = showNextMonth(start, value)
 				codeField.val(getCodeFrom.html())
-				break		
+				break
+			case 88:
+				clearInterval(startAutoNextMode)
+				clearInterval(startAutoPrevMode)
+				$('.autoNextStatus').text('')
+				$('.autoPrevStatus').text('')
+				break;
+			case 38:
+				clearInterval(startAutoPrevMode)
+				$('.autoPrevStatus').text('')
+				startAutoNextMode = setInterval(() => start = showNextMonth(start, value), 3000)
+				$('.autoNextStatus').text('Включен')
+				break;
+			case 40:
+				clearInterval(startAutoNextMode)
+				$('.autoNextStatus').text('')
+				startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), 3000)
+				$('.autoPrevStatus').text('Включен')	
+				break
 		}
 	})
 
