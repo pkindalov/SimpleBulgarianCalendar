@@ -98,23 +98,25 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
     for(let d = 0; d < days; d++){
         let td = $('<td></td>')
 
-        // if(d === currDate){
-        //     let classForCurrentMonth = getClassForMonth(month)
-        //     td.addClass(classForCurrentMonth)
-        // }
 
+        
 
         switch(beginDateName){
             case 'Mon':
+
+        if(d  === currDate - 1){
+            let classForCurrentMonth = getClassForMonth(month)
+            td.addClass(classForCurrentMonth)
+        }
+            
 
             if(d === dayIndex){
                 td.text(FIRST_DATE)
                 td.addClass(`date${FIRST_DATE}`)
                 d++
-                firstRowEndNumber = firstRowEndNumber
+                currDate++
 
-                let classForCurrentMonth = getClassForMonth(month)
-                td.addClass(classForCurrentMonth)
+                firstRowEndNumber = firstRowEndNumber
 
 
             }else{
@@ -126,14 +128,20 @@ function drawFirstDateRowNumbersMondayAndTuesday(days, dayIndex, beginDateName, 
 
             case 'Tue':
 
+            if(d === currDate){
+                let classForCurrentMonth = getClassForMonth(month)
+                td.addClass(classForCurrentMonth)
+            }
+
+
             if(d === dayIndex){
                 td.text(FIRST_DATE)
                 td.addClass(`date${FIRST_DATE}`)
 
                 // d++
                 firstRowEndNumber = firstRowEndNumber
-                let classForCurrentMonth = getClassForMonth(month)
-                td.addClass(classForCurrentMonth)
+                // let classForCurrentMonth = getClassForMonth(month)
+                // td.addClass(classForCurrentMonth)
             }else if(d > DATE_START_INDEX){
                 td.text(d)
                 td.addClass(`date${d}`)
@@ -162,10 +170,10 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
         let td = $('<td></td>')
         let counter = 0
 
-        // if(d === currDate){
-        //     let classForCurrentMonth = getClassForMonth(month)
-        //     td.addClass(classForCurrentMonth)
-        // }
+        if(d === currDate + emptyDays){
+            let classForCurrentMonth = getClassForMonth(month)
+            td.addClass(classForCurrentMonth)
+        }
 
 
         if(beginDateName === "Sun"){
@@ -176,8 +184,6 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
             d++
             firstRowEndNumber = firstRowEndNumber
 
-            let classForCurrentMonth = getClassForMonth(month)
-            td.addClass(classForCurrentMonth)
         }
 
 
@@ -189,8 +195,8 @@ function drawFirstDateRowFromWednesday (days, dayIndex, beginDateName, currDate,
                 // d++
                 firstRowEndNumber = firstRowEndNumber
 
-                let classForCurrentMonth = getClassForMonth(month)
-                td.addClass(classForCurrentMonth)
+                // let classForCurrentMonth = getClassForMonth(month)
+                // td.addClass(classForCurrentMonth)
 
             }else if(d > emptyDays){
                 //counter start count without empty cells and then subract -1 because one week in this format is from 0 monday to 6 sunday
@@ -254,6 +260,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
     let monthDays = daysInMonth(month, currentYear)
     let monthFirstDayName = new Date(new Date().getFullYear(), month - 1, 1);
     let beginDateName = monthFirstDayName.toDateString().split(" ")[0]
+
 
     
 
@@ -327,7 +334,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Wed':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 2, beginDateName, currDate, 6, firstMonthWeekRow, table, 2, 1, month)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(7, 2, beginDateName, currDate, 6, firstMonthWeekRow, table, 1, 1, month)
 
     // for(let d = 0; d < 7; d++){
     //     let td = $('<td></td>')
@@ -456,7 +463,7 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
     case 'Sun':
 
-    firstRowEndNumber = drawFirstDateRowFromWednesday(8, 6, beginDateName, currDate, 2, firstMonthWeekRow, table, 0, 0, month)
+    firstRowEndNumber = drawFirstDateRowFromWednesday(8, 6, beginDateName, currDate, 2, firstMonthWeekRow, table, 5, 0, month)
 
     // for(let d = 0; d < 8; d++){
     //     let td = $('<td></td>')
@@ -759,6 +766,7 @@ drawCalendarByMonthNumber(month, currentYear, currDate, table)
 
 // console.log(januaryFirstDay.toDateString())
 // let firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1)
+
 
 drawCalendarByMonthNumber(1, currentYear, currDate, table)
 

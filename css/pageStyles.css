@@ -11,7 +11,7 @@
 }
 
 #calendarContainer{
-    width: 50%;
+    /*width: 50%;*/
     margin:  0 auto;
     /*margin-top: 20px;*/
 }
@@ -70,15 +70,13 @@ td,th{
 .january{
     background-color: #42b6f4;
     opacity: 0.6;
-    /*background-image: url('../images/darkBlue.jpg');*/
-    /*border: 1px solid black;*/
     color: black;
 }
 
 .currentDayJanuary{
     background-color: #42b6f4;
     opacity: 0.6;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -102,8 +100,7 @@ td,th{
 }
 
 .currentDayFebruary{
-    background-color: #b6e2f9;
-    opacity: 0.6;
+    background-color: #b6e2f9; opacity: 0.6;
     color: black;
     font-weight: bold;
 }
@@ -128,7 +125,7 @@ td,th{
 .currentDayMarch{
     background-color: #84f988;
     opacity: 0.6;
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -140,7 +137,6 @@ td,th{
 
 .aprilWall{
     background-image: url('../images/spring.jpg');
-    /*opacity: 0.9;*/
     background-repeat: no-repeat;
     color: white;
 }
@@ -166,7 +162,6 @@ td,th{
 .mayWall{
     background-image: url('../images/goldColor.jpg');
     background-repeat: no-repeat;
-    /*opacity: 0.8;*/
     color: black;
 }
 
