@@ -711,24 +711,55 @@ function changeBackgroundOfContainer(month){
 }
 
 
+function currentMontColorScheme(currentMont){
+    switch(currentMont){
+        case 1:
+            return $('<table id="calendar" class="januaryWall"></table>')
+        case 2:
+            return $('<table id="calendar" class="februaryWall"></table>')   
+        case 3:
+            return $('<table id="calendar" class="marchWall"></table>')   
+        case 4:
+            return $('<table id="calendar" class="aprilWall"></table>')   
+        case 5:
+            return $('<table id="calendar" class="mayWall"></table>')   
+        case 6:
+            return $('<table id="calendar" class="juneWall"></table>')  
+        case 7:
+            return $('<table id="calendar" class="julyWall"></table>') 
+        case 8:
+            return $('<table id="calendar" class="augustWall"></table>')
+        case 9:
+            return $('<table id="calendar" class="septemberWall"></table>')  
+        case 10:
+            return $('<table id="calendar" class="octoberWall"></table>')   
+        case 11:
+            return $('<table id="calendar" class="novemberWall"></table>')     
+        case 12:
+            return $('<table id="calendar" class="decemberWall"></table>')                   
+    }
+}
+
+
 
 
 $(document).ready(function () {
-//default configurations
-let calContainer = $('#calendarContainer')
-let table = $('<table id="calendar" class="januaryWall"></table>')
-let firstRow = $('<tr></tr>')
-// let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
-
-let daysName = chooseColorSchemaForMonth(1)
-drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
-
 
 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 let currentDate = new Date()
 let currentYear = currentDate.getFullYear()
 let currDate = new Date().getDate()
+let currentMont = currentDate.getMonth() + 1
+
+//default configurations
+let calContainer = $('#calendarContainer')
+let table = currentMontColorScheme(currentMont)
+let firstRow = $('<tr></tr>')
+// let daysName = $('<th class="nameOfDaysBG">Пк</th><th class="nameOfDaysBG">Вт</th><th class="nameOfDaysBG">Ср</th><th class="nameOfDaysBG">Че</th><th class="nameOfDaysBG">Пе</th><th class="nameOfDaysBG">Съ</th><th class="nameOfDaysBG">Не</th>')
+
+let daysName = chooseColorSchemaForMonth(currentMont)
+drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
 
 
 
@@ -767,7 +798,10 @@ drawCalendarByMonthNumber(month, currentYear, currDate, table)
 // console.log(januaryFirstDay.toDateString())
 // let firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1)
 
+changeBackground(currentMont)
+changeBackgroundOfContainer(currentMont)
 
-drawCalendarByMonthNumber(1, currentYear, currDate, table)
+
+drawCalendarByMonthNumber(currentMont, currentYear, currDate, table)
 
 })
