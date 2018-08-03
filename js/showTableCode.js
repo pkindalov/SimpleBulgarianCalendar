@@ -123,15 +123,13 @@ function writeTableHeaderColClassOnCodeArea(thClass){
 
 
 function writeMainTableThTrClassOnCodeArea(){
-	const mainTableClass = ".table{text-align: center}"
-	const mainTrThClasses = "td,th{padding: 31px;}"
+	
+	const mainTrThClasses = "td,th{padding: 31px; text-align: center;}"
 
 	let codeCSScontainer = $('textarea[name="tableCSScode"]')
 	codeCSScontainer.append("\n")
-
-	codeCSScontainer.append(mainTableClass)
-	codeCSScontainer.append("\n")
 	codeCSScontainer.append(mainTrThClasses)
+	codeCSScontainer.append("\n")
 
 }
 
@@ -142,7 +140,7 @@ function writeCurrentDayClassOnCodeArea(currentDayClass){
 	codeCSScontainer.append("\n")
 
 
-	switch(currentDayClass){
+	switch(currentDayClass.split(" ")[0]){
 		case 'currentDayJanuary':
 			codeStr = ".currentDayJanuary{background-color: #42b6f4; opacity: 0.6; color: black; font-weight: bold;}"
 			codeCSScontainer.append(codeStr)  
@@ -150,13 +148,57 @@ function writeCurrentDayClassOnCodeArea(currentDayClass){
 		case 'currentDayFebruary':
 			codeStr = ".currentDayFebruary{background-color: #b6e2f9; opacity: 0.6; color: black; font-weight: bold;}"
 			codeCSScontainer.append(codeStr)
-			break	
+			break
+		case 'currentDayMarch':
+			codeStr = ".currentDayMarch{background-color: #84f988; opacity: 0.6; color: black; font-weight: bold;}"	
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayApril':
+			codeStr = ".currentDayApril{background-color: #39ef3f; opacity: 0.6; color: black; font-weight: bold;}"
+			codeCSScontainer.append(codeStr)	
+			break
+		case 'currentDayMay':
+			codeStr = ".currentDayMay{background-color: #f9f745; color: black; opacity: 0.8; font-weight: bold;}"
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayJune':
+			codeStr = ".currentDayJune{background-color: #fce411; color: black; font-weight: bold; opacity: 0.6;}"
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayJuly':
+			codeStr = ".currentDayJuly{background-color: #f9a11d; color: black; font-weight: bold; opacity: 0.6;}"	
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayAugust':
+			codeStr = ".currentDayAugust{background-color: #f93e1d; color: black; font-weight: bold; opacity: 0.6;}"
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDaySeptember':
+			codeStr = ".currentDaySeptember{background-color: #fc0008; color: white; font-weight: bold; opacity: 0.6;}"	
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayOctober':
+			codeStr = ".currentDayOctober{background-color: #9e7ef7; color: black; font-weight: bold; opacity: 0.6;}"
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayNovember':
+			codeStr = ".currentDayNovember{background-color: #662ffc; color: white; font-weight: bold; opacity: 0.6;}"
+			codeCSScontainer.append(codeStr)
+			break
+		case 'currentDayDecember':
+			codeStr = ".currentDayDecember{background-color: #332ffc; color: white; font-weight: bold; opacity: 0.6;}"
+			codeCSScontainer.append(codeStr)
+			break
+		default:
+			codeCSScontainer.text("No such css rule defined. Check file showTableCode.js, function writeCurrentDayClassOnCodeArea on line 139")
+			break				
+											
 	}
 }
 
 
  function writeCSS(){
-	let tableRows = $('#calendar tr')
+	let tableRows = $('#calendar')
 		let currentElementClass = ''
 		let thClass = ''
 		let tableClass = $('#calendar').attr('class')
@@ -175,7 +217,7 @@ function writeCurrentDayClassOnCodeArea(currentDayClass){
 			$(this).find('td').each(function(){
 				tdCurrentClass = $(this).attr('class') + ""
 				if(tdCurrentClass.indexOf('current') > -1){
-					currentDayClass = tdCurrentClass.split(" ")[1]
+					currentDayClass = tdCurrentClass
 				}
 			})
 

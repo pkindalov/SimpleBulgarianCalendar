@@ -227,17 +227,14 @@ for (let col = firstRowEndNumber; col <= monthDays; col++){
     let newCol = $('<td></td>')
     newCol.text(col)
     newCol.appendTo(table)
-    newCol.addClass(`date${col}`)
 
     if(col === currDate){
-        newCol.addClass(`date${col}`)
-
         let classForCurrentMonth = getClassForMonth(month)
         newCol.addClass(classForCurrentMonth)
-
-        
+        newCol.addClass(`date${col}`)
     }
 
+    newCol.addClass(`date${col}`)
   
     //this define where to put new row in the table
     if(col === separator ){
@@ -251,9 +248,6 @@ for (let col = firstRowEndNumber; col <= monthDays; col++){
 
 }
 }
-
-
-
 
 
 function drawCalendarByMonthNumber(month,currentYear, currDate, table){
@@ -491,6 +485,8 @@ function drawCalendarByMonthNumber(month,currentYear, currDate, table){
 
 
 drawRestOfTheTableRows(firstRowEndNumber, monthDays, currDate, table, month)
+
+
 
 // let separator = firstRowEndNumber + 6
 
@@ -742,6 +738,22 @@ function currentMontColorScheme(currentMont){
 
 
 
+function promoteMyWorks(table){
+    let tr = $('<tr colspan="8"></tr>')
+    let td = $('<td colspan="8"></td>')
+    let commercialLink = $('<a target="_blank" class="btn btn-default" href="https://www.dreamstime.com/R3v3nan7_info">Комерсиални снимки</a>')
+    let freeLink = $('<a target="_blank" class="btn btn-default" href="https://www.deviantart.com/th3r3v3nan7">Безплатни снимки</a>')
+
+    td.append("Още мои красиви снимки може да видите на: ")
+    td.append("<br />")
+    td.append(commercialLink)
+    td.append(freeLink)
+
+    td.appendTo(tr)
+    tr.appendTo(table)
+}
+
+
 
 $(document).ready(function () {
 
@@ -789,6 +801,7 @@ drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
     
 writeMonthName(month)    
 drawCalendarByMonthNumber(month, currentYear, currDate, table)
+promoteMyWorks(table)
 
 
 })
@@ -803,5 +816,6 @@ changeBackgroundOfContainer(currentMont)
 
 
 drawCalendarByMonthNumber(currentMont, currentYear, currDate, table)
+promoteMyWorks(table)
 
 })
