@@ -1,4 +1,10 @@
 const END_OF_MONTHS = 12
+const MILLISECONDS = 3000
+const LEFT_KEY = 37
+const RIGHT_KEY = 39
+const UP_KEY = 38
+const BOTTOM_KEY = 40
+const X_KEY = 88
 
 function showPrevMonth(start, value){
 	start = $('.selectMonth option:selected').val()
@@ -65,7 +71,7 @@ $(document).ready(function(){
 		ifAutoPrevModeStarted = !ifAutoPrevModeStarted
 
 		if(ifAutoPrevModeStarted){
-			startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), 3000)
+			startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), MILLISECONDS)
 			$('.autoPrevStatus').text('Включен')
 		} else {
 			clearInterval(startAutoPrevMode)
@@ -82,7 +88,7 @@ $(document).ready(function(){
 		ifAutoNextModeStarted = !ifAutoNextModeStarted
 
 		if(ifAutoNextModeStarted){
-			startAutoNextMode = setInterval(() => start = showNextMonth(start, value), 3000)
+			startAutoNextMode = setInterval(() => start = showNextMonth(start, value), MILLISECONDS)
 			$('.autoNextStatus').text('Включен')
 		} else {
 			clearInterval(startAutoNextMode)
@@ -95,30 +101,30 @@ $(document).ready(function(){
 	$(document).keydown(function(event){
 		// alert(event.which)
 		switch(event.which){
-			case 37:
+			case LEFT_KEY:
 				start = showPrevMonth(start, value)
 				codeField.val(getCodeFrom.html())
 				break
-			case 39:
+			case RIGHT_KEY:
 				start = showNextMonth(start, value)
 				codeField.val(getCodeFrom.html())
 				break
-			case 88:
+			case X_KEY:
 				clearInterval(startAutoNextMode)
 				clearInterval(startAutoPrevMode)
 				$('.autoNextStatus').text('')
 				$('.autoPrevStatus').text('')
 				break;
-			case 38:
+			case UP_KEY:
 				clearInterval(startAutoPrevMode)
 				$('.autoPrevStatus').text('')
-				startAutoNextMode = setInterval(() => start = showNextMonth(start, value), 3000)
+				startAutoNextMode = setInterval(() => start = showNextMonth(start, value), MILLISECONDS)
 				$('.autoNextStatus').text('Включен')
 				break;
-			case 40:
+			case BOTTOM_KEY:
 				clearInterval(startAutoNextMode)
 				$('.autoNextStatus').text('')
-				startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), 3000)
+				startAutoPrevMode = setInterval(() => start = showPrevMonth(start, value), MILLISECONDS)
 				$('.autoPrevStatus').text('Включен')	
 				break
 		}
