@@ -754,6 +754,19 @@ function promoteMyWorks(table){
 }
 
 
+function addMonthNameOnTopOfTable(currentMont, table){
+    let nameOfMonth = getMonthNameBG(currentMont)
+    let tr = $('<tr></tr>')
+    let th = $('<th colspan="8"></th')
+    let firstTr = table.find('tr:first')
+    
+
+    th.text(nameOfMonth)
+    th.appendTo(tr)
+    firstTr.after(tr)
+   
+}
+
 
 $(document).ready(function () {
 
@@ -801,6 +814,7 @@ drawFirsRowDaysNames(daysName, firstRow, table, calContainer)
     
 writeMonthName(month)    
 drawCalendarByMonthNumber(month, currentYear, currDate, table)
+addMonthNameOnTopOfTable(month, table)
 promoteMyWorks(table)
 
 
@@ -816,6 +830,7 @@ changeBackgroundOfContainer(currentMont)
 
 
 drawCalendarByMonthNumber(currentMont, currentYear, currDate, table)
+addMonthNameOnTopOfTable(currentMont, table)
 promoteMyWorks(table)
 
 })
