@@ -14,7 +14,7 @@ The second screenshot showing another functionality of the project - to show gen
 
 On the next images is show how the calendar looks by the generated html and css code. There also example codes in examples folder.
 
-IT IS IMPORTANT TO KNOW THAT EVEN THE GENERATED HTML AND CSS YOU NEED ALSO TO INCLUDE jQuery, bootstrap AND findAndMarkCurrentDay.js FILE WHICH IS IN FOLDER  JS ON THE PROJECT. THIS FILE IS NEEDED TO MARK THE CURRENT DAY ON THE GENERATED CALENDAR.YOU CAN SEE EXAMPLES IN EXAMPLES FOLDER ON PROJECT.
+IT IS IMPORTANT TO KNOW THAT EVEN THE GENERATED HTML AND CSS YOU NEED ALSO TO INCLUDE jQuery, bootstrap AND findAndMarkCurrentDay.js FILE WHICH IS IN FOLDER  JS ON THE PROJECT. THIS FILE IS NEEDED TO MARK THE CURRENT DAY ON THE GENERATED CALENDAR.YOU CAN SEE EXAMPLES IN EXAMPLES FOLDER ON PROJECT. IN GENERATED CSS, YOU NEED TO CHANGE PATH TO THE BACKROUND IMAGE. YOU CAN DOWNLOAD IT FROM THE IMAGES FOLDER AND THEN TO CHANGE PATH IN CSS RULE.
 
 <img src="screenshot3.png" alt="appearence of the project screenshot3" /> <br />
 <img src="screenshot4.png" alt="appearence of the project screenshot4" />
